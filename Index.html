@@ -1,0 +1,39 @@
+<style>
+    .en_form{
+   
+    }
+    .item{
+    position:relative;
+    bottom:15px;
+    left:15px;
+    }
+    </style>
+    
+    <form class="en_form">
+    <dl>
+    <dt>消費量</dt>
+    <dd><input type="number" name="use"></dd>
+    <dt>周回数</dt>
+    <dd><input type="number" name="count"></dd>
+    <dd><input type="button" onclick="calc(use.value, count.value);" value="算出"></dd>
+    <details>
+    <dd><input type="checkbox" id="drop_check">
+    <label for="drop_check">期待値計算(そのうち)</label>
+    <dt>ドロップ</dt>
+    <dd><input type="number" name="drop">
+    </details>
+    <dt>合計消費量</dt>
+    <dd><input id="ene"></dd>
+    <dt>統率回復必要数</dt>
+    <dd><img src="ship.png"  width="50" height="50"><input id="ship" class="item"></dd>
+    <dd><img src="cat_food.png"  width="50" height="40"><input id="cats" class="item"></dd>
+    </dl>
+    </form>
+    <script>
+        function calc(use, count) {
+            const ene_value = document.getElementById('ene').value = Math.round(use * count);
+    const ship_value = document.getElementById('ship').value = Math.trunc(ene_value / 1150);
+    const cats_value = document.getElementById('cats').value = Math.trunc(ship_value * 30);
+    }
+    </script>
+    
