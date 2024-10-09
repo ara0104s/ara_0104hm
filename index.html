@@ -2,16 +2,22 @@
     .en_form{
    
     }
+
+    .form_e{
+        
+    }
     .item{
     position:relative;
     bottom:15px;
     left:15px;
     }
-    </style>
+</style>
     
     <form class="en_form">
-        <title>周回用</title>
-    <dl>
+        <head>
+            <title>周回用</title>
+        </head>
+    <dl>消費量計算
     <dt>消費量</dt>
     <dd><input type="number" name="use"></dd>
     <dt>周回数</dt>
@@ -30,11 +36,31 @@
     <dd><img src="cat_food.png"  width="50" height="40"><input id="cats" class="item"></dd>
     </dl>
     </form>
+
+    <form class="form_e">
+        <dl>周回可能回数計算
+                <p><img src="ship.png"  width="50" height="50"><input type="number" name="s1" class="item"></p>
+                <p><img src="cat_food.png"  width="50" height="40"><input type="number" name="food" class="item"></p>
+                <p>消費量<input type="number" name="use_en"></p>
+                <P><input type="button" onclick="X(food.value,s1.value,use_en.value)" value="算出"></P>
+                <p>周回可能回数<input id="how"></p>
+        </dl>
+    </form>
     <script>
         function calc(use, count) {
             const ene_value = document.getElementById('ene').value = Math.round(use * count);
     const ship_value = document.getElementById('ship').value = Math.trunc(ene_value / 1150);
     const cats_value = document.getElementById('cats').value = Math.trunc(ship_value * 30);
     }
+
+    function X(food,ships,use_en){
+    const food1 = (food / 30)
+    const ship_2 = parseInt(ships)
+            food2 = parseInt(food1)
+            one = parseInt(1)
+    const how_value = document.getElementById('how').value = Math.trunc((food2 + ship_2 + one) * 1150 / use_en)
+
+
+}
     </script>
     
